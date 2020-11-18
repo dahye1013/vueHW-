@@ -21,6 +21,7 @@
 
 <script>// 옵션 : 데이터, 메소드, 워치 등등
 import OtherVue from '../components/otherVue.vue';
+import EventBus from '../EventBus';
 
 //data 는 반드시 함수여야합니다.<???이해못했음 https://kr.vuejs.org/v2/guide/components.html
 export default {
@@ -32,14 +33,28 @@ export default {
 
      //컴포넌트로 data 사용시에 data를 오브젝트로 선언하여 error 
      //>동일한 컴포넌트가 여러번 사용되어도 동일한 객체를 가르키는 것이 아니라 함수가 호출 될때마다 만들어진 객체가 리턴되게한다
-     //>서로 다른 객체를 참조 할 수 있기 때문이다. //?? 헷갈림 과장님께 여쭤보자
+     //>서로 다른 객체를 참조 할 수 있기 때문이다. //?? 헷갈림 더 알아보고 모르겠으면, 과장님께 여쭤보자
      //참고할 링크 https://velog.io/@bang3957/vueData
     data(){
         return{
-            name: 'Dahye Shin'
-             
+            name: 'Dahye Shin',
+//            bus:'practice1Bus'
+            bus: { id:1, name:'practice1Bus', color:'red'}
         }
+    },
+    mounted(){ 
+      //이벤트 걸기 - 콘솔메시지
+        EventBus.$on('eventbusMsg',(data)=>{
+        console.log('[practice1]에서 보낸 이벤트버스  ',data); 
+      })
+      //이벤트걸기 - 버스 추가하기
+      EventBus.$on('addBus',(busses)=>{ //busses 리스트를 받아서 다른 버스를 넣을 것이다.
+        busses.push(this.bus);
+        console.log(busses);
+      });      
+
     }
+    //***on 을 화면을 띄운다음에 데이터를 보내는거라서 보통 created에다가 하지 않고, mounted에다가 진행한다.***
 }
 </script>
 
