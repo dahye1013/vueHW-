@@ -1,7 +1,10 @@
+// 라우터 사용하기
+// 1.상단에 컴포넌트를 import해온다.
+// 2. const routes=[] 에 객체 정보를 기입한다.
 import Vue from 'vue'
 import VueRouter from 'vue-router' 
 import Home from '../views/Home.vue'
-import LifeCycle from '../views/LifeCycle.vue'
+import LifeCycle from '../views/LifeCycle.vue' 
 import practice2 from '../views/practice2.vue'
 
 Vue.use(VueRouter) //vue가 vue router 사용한다고 설정

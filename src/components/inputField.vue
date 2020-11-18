@@ -1,4 +1,5 @@
-// 
+// ***$emit****
+
 <template>
     <div>
         <label for="">Name</label>
@@ -26,8 +27,19 @@ export default {
         updateName(e){ //e , event가 일어날때마다 발생하는 것 확인
             console.log(e.target.value);
             this.$emit('update-Name',e.target.value);
-            //$emit으로 부모 컴포넌트에 value를 올릴 수 있다. (이벤트이름, 올릴 데이터)
+            //자식에서 this.$emit(신호,데이터)를 보내고,
+            //부모에서 @신호="실행함수"을 통해 실행 함수를 지정한다.
+        },
+        sendToPractice2(){
+            this.$emit('msgForPractice2','msg - 저는 인풋필드 컴포넌트(자식)입니다.');
         }
+    },
+    created(){
+        this.sendToPractice2();
+//        console.log('p2 created sendToPractice2 ......');
     }
 }
+
+
+
 </script>

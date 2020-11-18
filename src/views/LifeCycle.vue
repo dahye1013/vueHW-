@@ -1,3 +1,10 @@
+// 목요일까지 구현해야 할 HW
+//  내용 : (1)vue life cycle을 보여줄 수 있는 것 구현하기.
+//          (2)vue life cycle의 돌아가는 본인의 가정과 결과를 주석으로 남기기.
+//          (3)정의와 증명을 목요일(오후1시)에 코드리뷰
+//  필수 조건 : vue , watch. vue router,  event bus
+//  옵션 : vuex
+
 <template> <!-- template : html코드 -->
   <div class="lifeCycle">
     <h2>{{title}}</h2>
@@ -57,6 +64,7 @@ export default {
       //결과 : beforeCreate undefined
     },
     created(){
+      console.log(this);
       console.log('created',this.title);
       //가정 : instance가 생성되었으므로 data에 접근 할 수 있어서 name이 출력된다.
       //결과 : created DH
